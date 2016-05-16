@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+community_category = Category.where(name: 'community').first_or_create(name: 'community')
+housing_category = Category.where(name: 'housing').first_or_create(name: 'housing')
+personal_category = Category.where(name: 'personal').first_or_create(name: 'personal')
+services_category = Category.where(name: 'services').first_or_create(name: 'services')
+for_sale_category = Category.where(name: 'for sale').first_or_create(name: 'for sale')
+jobs_category = Category.where(name: 'jobs').first_or_create(name: 'jobs')
+
+
+
+Subcategory.where(name: 'activities', category_id: community_category.id).first_or_create(name: 'activities', category_id: community_category.id)
+Subcategory.where(name: 'classes', category_id: community_category.id).first_or_create(name: 'classes', category_id: community_category.id)
+Subcategory.where(name: 'events', category_id: community_category.id).first_or_create(name: 'events', category_id: community_category.id)
